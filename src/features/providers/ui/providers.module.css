@@ -1,0 +1,76 @@
+.providers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.rowInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rowTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 700;
+}
+
+.rowMeta {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.baseUrlNote {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.testRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.securityNote {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.modelFieldHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.refreshModelsButton {
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.refreshModelsButton:disabled {
+  color: var(--color-text-faint);
+  cursor: default;
+}

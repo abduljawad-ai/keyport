@@ -1,0 +1,26 @@
+# Supabase local development configuration.
+#
+# JWT verification is performed INSIDE each Edge Function (fail-closed,
+# fail-safe error envelopes), so gateway-level verify_jwt is disabled to let
+# CORS preflight (OPTIONS) requests reach the functions. Every function
+# independently rejects missing/invalid Bearer tokens with 401.
+
+project_id = "keyport-chat"
+
+[functions.save-api-key]
+verify_jwt = false
+
+[functions.test-api-key]
+verify_jwt = false
+
+[functions.list-provider-keys]
+verify_jwt = false
+
+[functions.delete-api-key]
+verify_jwt = false
+
+[functions.chat]
+verify_jwt = false
+
+[functions.list-models]
+verify_jwt = false

@@ -1,0 +1,57 @@
+/* ============================================================================
+   Light theme — default values applied at :root and [data-theme="light"].
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --shadow-color: rgba(15, 23, 42, 0.1);
+
+  /* brand */
+  --color-accent: #6d5cff;
+  --color-accent-hover: #5b4be0;
+  --color-accent-soft: rgba(109, 92, 255, 0.12);
+  --color-accent-contrast: #ffffff;
+
+  /* surfaces */
+  --color-bg: #f7f7f9;
+  --color-bg-elevated: #ffffff;
+  --color-bg-sunken: #eef0f4;
+  --color-bg-hover: rgba(15, 23, 42, 0.05);
+  --color-bg-active: rgba(15, 23, 42, 0.08);
+
+  /* text */
+  --color-text: #1a2030;
+  --color-text-muted: #5c6577;
+  --color-text-faint: #8a93a6;
+  --color-text-inverted: #ffffff;
+
+  /* borders */
+  --color-border: #e3e6ec;
+  --color-border-strong: #c9cfda;
+
+  /* semantics */
+  --color-success: #178a50;
+  --color-success-soft: rgba(23, 138, 80, 0.12);
+  --color-warning: #b7791f;
+  --color-warning-soft: rgba(183, 121, 31, 0.14);
+  --color-danger: #d64545;
+  --color-danger-soft: rgba(214, 69, 69, 0.1);
+  --color-info: #2f6fd0;
+  --color-info-soft: rgba(47, 111, 208, 0.1);
+
+  /* chat bubbles */
+  --color-user-bubble: #6d5cff;
+  --color-user-bubble-text: #ffffff;
+  --color-assistant-bubble: #ffffff;
+
+  /* code blocks */
+  --color-code-bg: #0f1420;
+  --color-code-text: #e6e9f0;
+  --color-inline-code-bg: rgba(15, 23, 42, 0.07);
+
+  /* overlays */
+  --color-backdrop: rgba(15, 23, 42, 0.45);
+  --color-focus-ring: rgba(109, 92, 255, 0.55);
+}

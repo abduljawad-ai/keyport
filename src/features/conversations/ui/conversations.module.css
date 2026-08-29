@@ -1,0 +1,53 @@
+.itemWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-md);
+}
+
+.item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 34px 8px 10px;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.item:hover {
+  background: var(--color-bg-hover);
+  text-decoration: none;
+}
+
+.itemActive,
+.itemActive:hover {
+  background: var(--color-accent-soft);
+}
+
+.itemTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemMeta {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.itemActions {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.itemWrapper:hover .itemActions,
+.itemWrapper:focus-within .itemActions {
+  opacity: 1;
+}
