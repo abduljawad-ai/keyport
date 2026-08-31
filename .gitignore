@@ -19,3 +19,4 @@ coverage/
 
 # --- Supabase local artifacts ---
 supabase/.temp/
+.vercel

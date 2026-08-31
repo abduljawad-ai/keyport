@@ -1,0 +1,5 @@
+# Allow all crawlers and point them at the sitemap.
+User-agent: *
+Allow: /
+
+Sitemap: https://keyport-jet.vercel.app/sitemap.xml

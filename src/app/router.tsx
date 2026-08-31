@@ -5,6 +5,7 @@ import { AppShell } from "@/app/App";
 import { PublicOnly, RequireAuth } from "@/app/RouteGuards";
 import { AuthPage } from "@/pages/AuthPage";
 import { ChatPage } from "@/pages/ChatPage";
+import { LandingPage } from "@/pages/LandingPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { SettingsPage } from "@/pages/SettingsPage";
 import { UsagePage } from "@/pages/UsagePage";
@@ -13,6 +14,10 @@ import { AppearanceSettings } from "@/features/settings/ui/AppearanceSettings";
 import { ProviderSettings } from "@/features/settings/ui/ProviderSettings";
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />,
+  },
   {
     path: "/auth",
     element: (
@@ -43,6 +48,5 @@ export const router = createBrowserRouter([
       { path: "/usage", element: <UsagePage /> },
     ],
   },
-  { path: "/", element: <Navigate to="/chat" replace /> },
   { path: "*", element: <NotFoundPage /> },
 ]);
