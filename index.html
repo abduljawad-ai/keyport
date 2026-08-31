@@ -28,16 +28,19 @@
       content="Bring your own AI provider API keys for secure, private AI chat. Keys stored encrypted and used server-side only."
     />
     <meta property="og:url" content="https://keyport-ai.vercel.app/" />
-    <meta property="og:image" content="https://keyport-ai.vercel.app/favicon.svg" />
+    <meta property="og:image" content="https://keyport-ai.vercel.app/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Keyport — Secure AI Chat by Abdul Jawad Gopang" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Keyport — Secure AI Chat by Abdul Jawad Gopang" />
     <meta
       name="twitter:description"
       content="Bring your own AI provider API keys for secure, private AI chat. Keys stored encrypted, used server-side only."
     />
-    <meta name="twitter:image" content="https://keyport-ai.vercel.app/favicon.svg" />
+    <meta name="twitter:image" content="https://keyport-ai.vercel.app/og-image.svg" />
 
     <!-- Structured data: associates the creator's identity with the product -->
     <script type="application/ld+json">
@@ -73,6 +76,36 @@
             "description": "Secure AI chat by Abdul Jawad Gopang.",
             "author": { "@id": "https://keyport-ai.vercel.app/#person" },
             "publisher": { "@id": "https://keyport-ai.vercel.app/#person" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://keyport-ai.vercel.app/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is Keyport?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Keyport is a private, bring-your-own-key (BYOK) AI chat application. Instead of paying a monthly subscription, you connect your own AI provider API keys and chat with your chosen models directly."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are my API keys stored safely?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Keyport encrypts your API keys at rest and uses them only server-side. Your keys are never returned to your browser, so they stay out of client-side code."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Who created Keyport?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Keyport is built and maintained by Abdul Jawad Gopang (also known as Jawad Gopang), a software developer focused on privacy-first web applications."
+                }
+              }
+            ]
           }
         ]
       }

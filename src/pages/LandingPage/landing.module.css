@@ -151,6 +151,32 @@
   color: var(--color-accent);
 }
 
+.faqList {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faqItem {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--color-bg-elevated);
+}
+
+.faqQuestion {
+  font-weight: 600;
+  cursor: pointer;
+  font-size: var(--text-md);
+}
+
+.faqAnswer {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-body);
+}
+
 .footer {
   border-top: 1px solid var(--color-border);
   padding: var(--space-4) var(--space-6);

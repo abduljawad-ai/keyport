@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141221"/>
+      <stop offset="1" stop-color="#0d0b18"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6d5cff"/>
+      <stop offset="1" stop-color="#0f9d6e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- subtle decorative glow -->
+  <circle cx="1050" cy="520" r="260" fill="#6d5cff" opacity="0.12"/>
+  <circle cx="160" cy="80" r="200" fill="#0f9d6e" opacity="0.10"/>
+
+  <!-- brand mark: rounded square + key -->
+  <g transform="translate(90, 250)">
+    <rect width="130" height="130" rx="30" fill="url(#accent)"/>
+    <g transform="translate(52, 50)">
+      <path d="M0 26v-18a8 8 0 0 1 16 0v18" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="6" cy="30" r="6" fill="#fff"/>
+      <path d="M5 34V44" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- headline -->
+  <text x="270" y="300" font-family="Geist, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Keyport</text>
+  <text x="270" y="370" font-family="Geist, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">Secure AI Chat</text>
+  <text x="270" y="440" font-family="Geist, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="500" fill="#9aa0b5">Bring your own API keys. Encrypted, server-side only.</text>
+
+  <!-- footer: creator name -->
+  <line x1="90" y1="540" x2="1110" y2="540" stroke="#2a2a3a" stroke-width="2"/>
+  <text x="90" y="585" font-family="Geist, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="28" font-weight="600" fill="#6d5cff">by Abdul Jawad Gopang</text>
+  <text x="1110" y="585" text-anchor="end" font-family="Geist, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="24" font-weight="500" fill="#5a5f72">keyport-ai.vercel.app</text>
+</svg>
