@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
+import { Icon, type PhosphorIcon } from "@/shared/ui/Icon";
 
 export interface EmptyStateProps {
-  icon?: string;
+  /** Phosphor icon component rendered above the title. */
+  icon?: PhosphorIcon;
   title: string;
   description?: string;
   action?: ReactNode;
@@ -12,7 +14,7 @@ export function EmptyState({ icon, title, description, action }: EmptyStateProps
     <div className="empty-state">
       {icon ? (
         <div className="empty-state__icon" aria-hidden="true">
-          {icon}
+          <Icon icon={icon} size={34} />
         </div>
       ) : null}
       <div className="empty-state__title">{title}</div>

@@ -10,12 +10,21 @@
   width: 100%;
   padding: 8px 12px;
   font: inherit;
-  color: var(--color-text, #1a1a1a);
-  background: var(--color-bg-input, #fff);
-  border: 1px solid var(--color-border, #ccc);
-  border-radius: 6px;
+  color: var(--color-text);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   cursor: pointer;
   text-align: left;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.trigger:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+}
+.trigger:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
 }
 .trigger:disabled {
   opacity: 0.6;
@@ -27,6 +36,9 @@
   white-space: nowrap;
 }
 .caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0.6;
   flex: none;
 }
@@ -39,19 +51,20 @@
   max-height: 320px;
   display: flex;
   flex-direction: column;
-  background: var(--color-bg, #fff);
+  background: var(--color-bg-elevated, #fff);
   border: 1px solid var(--color-border, #ccc);
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-2, 0 8px 24px rgba(0, 0, 0, 0.12));
   overflow: hidden;
 }
 .search {
   flex: none;
   padding: 8px 12px;
   border: none;
-  border-bottom: 1px solid var(--color-border, #eee);
+  border-bottom: 1px solid var(--color-border);
   font: inherit;
-  background: var(--color-bg-input, #fff);
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
   outline: none;
 }
 .list {
@@ -81,7 +94,7 @@
 }
 .optionActive {
   margin: 0;
-  background: var(--color-accent, rgba(0, 0, 0, 0.08));
+  background: var(--color-bg-active, var(--color-accent-soft, rgba(0, 0, 0, 0.08)));
 }
 .optionButton {
   display: block;
@@ -94,8 +107,10 @@
   border: none;
   cursor: pointer;
 }
-.optionButton:hover {
-  background: rgba(0, 0, 0, 0.05);
+.optionButton:hover,
+.optionButton:focus-visible {
+  background: var(--color-bg-hover, rgba(0, 0, 0, 0.05));
+  outline: none;
 }
 .empty {
   padding: 12px;

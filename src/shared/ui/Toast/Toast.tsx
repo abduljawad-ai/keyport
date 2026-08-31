@@ -10,6 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { X } from "@/shared/ui/Icon";
 
 export type ToastVariant = "success" | "error" | "info";
 
@@ -69,7 +70,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               onClick={() => dismiss(toast.id)}
               aria-label="Dismiss notification"
             >
-              ✕
+              <X size={14} />
             </button>
           </div>
         ))}

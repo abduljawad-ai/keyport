@@ -10,7 +10,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { Link } from "react-router-dom";
-import { Button, Input, Label } from "@/shared/ui";
+import { Button, Input, Label, Stop } from "@/shared/ui";
 import { useToast } from "@/shared/ui";
 import { getUserFriendlyMessage, normalizeError } from "@/shared/lib/errors";
 import { composerMessageSchema } from "@/shared/lib/validators";
@@ -248,7 +248,8 @@ export function Composer({
         />
         {isStreaming ? (
           <Button variant="secondary" onClick={onStop} aria-label="Stop generating">
-            ■ Stop
+            <Stop size={16} weight="bold" />
+            Stop
           </Button>
         ) : (
           <Button onClick={() => void handleSubmit()} disabled={!canSend} aria-label="Send message">

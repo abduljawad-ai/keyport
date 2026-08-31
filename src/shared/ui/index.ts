@@ -6,6 +6,26 @@ export { Dialog } from "./Dialog";
 export type { DialogProps } from "./Dialog";
 export { EmptyState } from "./EmptyState";
 export type { EmptyStateProps } from "./EmptyState";
+export { Icon, AppIcon, DEFAULT_ICON_SIZE, ICON_WEIGHT, ICON_BOLD_WEIGHT } from "./Icon";
+export type { IconKind, PhosphorIcon, IconWeight } from "./Icon";
+export {
+  ArrowDown,
+  CaretDown,
+  CaretUp,
+  ChatCircleDots,
+  Check,
+  Command,
+  CompassRose,
+  DotsThree,
+  GearSix,
+  Key,
+  List,
+  MagnifyingGlass,
+  Plus,
+  Stop,
+  Warning,
+  X,
+} from "./Icon";
 export { Input } from "./Input";
 export type { InputProps } from "./Input";
 export { Label } from "./Label";

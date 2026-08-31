@@ -1,5 +1,6 @@
 /* ============================================================================
    Dark theme — applied via [data-theme="dark"] on <html>.
+   World: restrained slate neutrals with a single emerald accent.
    ========================================================================== */
 
 [data-theme="dark"] {
@@ -8,42 +9,43 @@
   --shadow-color: rgba(0, 0, 0, 0.5);
 
   /* brand */
-  --color-accent: #8d7bff;
-  --color-accent-hover: #a294ff;
-  --color-accent-soft: rgba(141, 123, 255, 0.16);
-  --color-accent-contrast: #0f0d1d;
+  --color-accent: #34d399;
+  --color-accent-hover: #52dfab;
+  --color-accent-soft: rgba(52, 211, 153, 0.16);
+  --color-accent-contrast: #06251a;
+  --color-focus-ring: rgba(52, 211, 153, 0.55);
 
   /* surfaces */
-  --color-bg: #12141a;
-  --color-bg-elevated: #1a1d26;
-  --color-bg-sunken: #0d0f13;
+  --color-bg: #0f1218;
+  --color-bg-elevated: #171b23;
+  --color-bg-sunken: #0b0e13;
   --color-bg-hover: rgba(255, 255, 255, 0.06);
   --color-bg-active: rgba(255, 255, 255, 0.1);
 
   /* text */
-  --color-text: #e8eaf0;
-  --color-text-muted: #9aa3b5;
-  --color-text-faint: #6d7688;
-  --color-text-inverted: #12141a;
+  --color-text: #e7eaf0;
+  --color-text-muted: #99a2b3;
+  --color-text-faint: #6d7687;
+  --color-text-inverted: #0f1218;
 
   /* borders */
-  --color-border: #2a2e3a;
-  --color-border-strong: #3c4252;
+  --color-border: #272c37;
+  --color-border-strong: #3a4150;
 
   /* semantics */
   --color-success: #3fbf7f;
   --color-success-soft: rgba(63, 191, 127, 0.14);
-  --color-warning: #e0a94f;
-  --color-warning-soft: rgba(224, 169, 79, 0.14);
+  --color-warning: #dfa54c;
+  --color-warning-soft: rgba(223, 165, 76, 0.14);
   --color-danger: #ef6a6a;
   --color-danger-soft: rgba(239, 106, 106, 0.12);
   --color-info: #6aa3ef;
   --color-info-soft: rgba(106, 163, 239, 0.12);
 
   /* chat bubbles */
-  --color-user-bubble: #6d5cff;
+  --color-user-bubble: #0f9d6e;
   --color-user-bubble-text: #ffffff;
-  --color-assistant-bubble: #1a1d26;
+  --color-assistant-bubble: #171b23;
 
   /* code blocks */
   --color-code-bg: #0b0e14;
@@ -52,5 +54,4 @@
 
   /* overlays */
   --color-backdrop: rgba(5, 8, 14, 0.62);
-  --color-focus-ring: rgba(141, 123, 255, 0.6);
 }

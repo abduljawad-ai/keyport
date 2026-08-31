@@ -3,7 +3,7 @@
 import { useParams } from "react-router-dom";
 import { useConversation } from "@/features/chat/model/useConversations";
 import { ChatShell } from "@/widgets/ChatShell";
-import { EmptyState } from "@/shared/ui";
+import { ChatCircleDots, EmptyState } from "@/shared/ui";
 
 export function ChatPage() {
   const { conversationId } = useParams<{ conversationId?: string }>();
@@ -13,7 +13,7 @@ export function ChatPage() {
     return (
       <div className="fullscreen-center">
         <EmptyState
-          icon="🔍"
+          icon={ChatCircleDots}
           title="Conversation not found"
           description="This conversation may have been deleted or you may not have access to it."
           action={

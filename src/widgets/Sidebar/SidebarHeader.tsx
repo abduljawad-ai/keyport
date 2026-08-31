@@ -1,7 +1,7 @@
 // Sidebar header: brand + new chat action.
 
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/shared/ui";
+import { AppIcon, Button } from "@/shared/ui";
 import styles from "./sidebar.module.css";
 
 export function SidebarHeader() {
@@ -10,7 +10,9 @@ export function SidebarHeader() {
   return (
     <div className={styles.header}>
       <Link to="/chat" className={styles.brand} aria-label="Keyport home">
-        <span className={styles.brandMark} aria-hidden="true">⌘</span>
+        <span className={styles.brandMark} aria-hidden="true">
+          <AppIcon kind="brand" size={18} />
+        </span>
         <span className={styles.brandName}>Keyport</span>
       </Link>
       <Button
@@ -18,7 +20,8 @@ export function SidebarHeader() {
         onClick={() => navigate("/chat")}
         aria-label="Start a new chat"
       >
-        + New chat
+        <AppIcon kind="plus" size={16} weight="bold" />
+        New chat
       </Button>
     </div>
   );

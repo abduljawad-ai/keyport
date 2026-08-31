@@ -2,6 +2,7 @@
 // Never renders raw error details that could leak internals.
 
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { EmptyState, Warning } from "@/shared/ui";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -31,19 +32,16 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     if (this.state.hasError) {
       return (
         <div className="fullscreen-center" role="alert">
-          <div className="empty-state">
-            <div className="empty-state__icon" aria-hidden="true">⚠️</div>
-            <div className="empty-state__title">Something went wrong</div>
-            <div className="empty-state__description">
-              An unexpected error occurred. Your data is safe. Please reload the page to
-              continue.
-            </div>
-            <div className="empty-state__action">
+          <EmptyState
+            icon={Warning}
+            title="Something went wrong"
+            description="An unexpected error occurred. Your data is safe. Please reload the page to continue."
+            action={
               <button type="button" className="btn btn--primary" onClick={this.handleReload}>
                 Reload app
               </button>
-            </div>
-          </div>
+            }
+          />
         </div>
       );
     }

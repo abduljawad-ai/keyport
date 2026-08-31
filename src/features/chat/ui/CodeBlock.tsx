@@ -2,6 +2,7 @@
 // avoids unsafe/unnecessary dependencies per spec Part 4 §19).
 
 import type { ReactNode } from "react";
+import { Check } from "@/shared/ui";
 import { extractTextFromChildren, getLanguageFromClassName } from "@/features/chat/lib/markdown";
 import { useCopyToClipboard } from "@/shared/hooks/useCopyToClipboard";
 import styles from "./chat.module.css";
@@ -41,7 +42,14 @@ export function CodeBlock({ children }: { children: ReactNode }) {
           onClick={() => void copy(codeText)}
           aria-label="Copy code to clipboard"
         >
-          {copied ? "Copied ✓" : "Copy"}
+          {copied ? (
+            <>
+              <Check size={14} weight="bold" />
+              Copied
+            </>
+          ) : (
+            "Copy"
+          )}
         </button>
       </div>
       <pre className={styles.codeBlockPre}>{children}</pre>

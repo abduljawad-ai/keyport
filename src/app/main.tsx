@@ -8,6 +8,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { ErrorBoundary } from "@/app/ErrorBoundary";
+import "@fontsource-variable/geist/wght.css";
+import "@fontsource-variable/geist-mono/wght.css";
 import "@/shared/styles/tokens.css";
 import "@/shared/styles/theme-light.css";
 import "@/shared/styles/theme-dark.css";

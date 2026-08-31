@@ -1,5 +1,6 @@
 /* ============================================================================
    Light theme — default values applied at :root and [data-theme="light"].
+   World: restrained slate neutrals with a single emerald accent.
    ========================================================================== */
 
 :root,
@@ -9,40 +10,40 @@
   --shadow-color: rgba(15, 23, 42, 0.1);
 
   /* brand */
-  --color-accent: #6d5cff;
-  --color-accent-hover: #5b4be0;
-  --color-accent-soft: rgba(109, 92, 255, 0.12);
+  --color-accent: #0f9d6e;
+  --color-accent-hover: #0c8159;
+  --color-accent-soft: rgba(15, 157, 110, 0.12);
   --color-accent-contrast: #ffffff;
 
   /* surfaces */
-  --color-bg: #f7f7f9;
+  --color-bg: #f6f7f9;
   --color-bg-elevated: #ffffff;
-  --color-bg-sunken: #eef0f4;
+  --color-bg-sunken: #eef1f4;
   --color-bg-hover: rgba(15, 23, 42, 0.05);
   --color-bg-active: rgba(15, 23, 42, 0.08);
 
   /* text */
-  --color-text: #1a2030;
-  --color-text-muted: #5c6577;
-  --color-text-faint: #8a93a6;
+  --color-text: #18202e;
+  --color-text-muted: #55606f;
+  --color-text-faint: #7d8695;
   --color-text-inverted: #ffffff;
 
   /* borders */
-  --color-border: #e3e6ec;
-  --color-border-strong: #c9cfda;
+  --color-border: #e4e7ec;
+  --color-border-strong: #ccd1da;
 
   /* semantics */
-  --color-success: #178a50;
-  --color-success-soft: rgba(23, 138, 80, 0.12);
-  --color-warning: #b7791f;
-  --color-warning-soft: rgba(183, 121, 31, 0.14);
+  --color-success: #128a5a;
+  --color-success-soft: rgba(18, 138, 90, 0.12);
+  --color-warning: #a86a12;
+  --color-warning-soft: rgba(168, 106, 18, 0.14);
   --color-danger: #d64545;
   --color-danger-soft: rgba(214, 69, 69, 0.1);
   --color-info: #2f6fd0;
   --color-info-soft: rgba(47, 111, 208, 0.1);
 
   /* chat bubbles */
-  --color-user-bubble: #6d5cff;
+  --color-user-bubble: #0f9d6e;
   --color-user-bubble-text: #ffffff;
   --color-assistant-bubble: #ffffff;
 
@@ -53,5 +54,5 @@
 
   /* overlays */
   --color-backdrop: rgba(15, 23, 42, 0.45);
-  --color-focus-ring: rgba(109, 92, 255, 0.55);
+  --color-focus-ring: rgba(15, 157, 110, 0.5);
 }

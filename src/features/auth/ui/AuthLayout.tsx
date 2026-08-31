@@ -1,6 +1,7 @@
 // Auth page layout: centered card with branding.
 
 import type { ReactNode } from "react";
+import { AppIcon } from "@/shared/ui";
 import styles from "./auth.module.css";
 
 export interface AuthLayoutProps {
@@ -15,7 +16,9 @@ export function AuthLayout({ title, subtitle, children, footer }: AuthLayoutProp
     <div className={styles.page}>
       <div className={styles.card}>
         <div className={styles.brand} aria-hidden="true">
-          <span className={styles.brandMark}>⌘</span>
+          <span className={styles.brandMark}>
+            <AppIcon kind="brand" size={20} />
+          </span>
           <span className={styles.brandName}>Keyport</span>
         </div>
         <h1 className={styles.title}>{title}</h1>

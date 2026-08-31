@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useDeleteConversation } from "@/features/conversations/model/conversationMutations";
 import { RenameConversationDialog } from "@/features/conversations/ui/RenameConversationDialog";
 import { formatRelative } from "@/shared/lib/date";
-import { Button, Dialog, Menu } from "@/shared/ui";
+import { Button, Dialog, DotsThree, Menu } from "@/shared/ui";
 import type { ConversationDbRow } from "@/shared/supabase/types";
 import styles from "./conversations.module.css";
 
@@ -36,7 +36,7 @@ export function ConversationItem({ conversation }: ConversationItemProps) {
           ariaLabel={`Actions for ${conversation.title}`}
           trigger={
             <span className="icon-btn" aria-hidden="true">
-              ⋯
+              <DotsThree size={20} />
             </span>
           }
           items={[

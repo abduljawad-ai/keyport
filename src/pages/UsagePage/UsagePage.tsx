@@ -3,7 +3,7 @@
 import { useUsageEvents } from "@/features/usage/model/usageQueries";
 import { UsageSummaryCards } from "@/features/usage/ui/UsageSummaryCards";
 import { UsageTable } from "@/features/usage/ui/UsageTable";
-import { Button, EmptyState } from "@/shared/ui";
+import { Button, CompassRose, EmptyState } from "@/shared/ui";
 import { getUserFriendlyMessage, normalizeError } from "@/shared/lib/errors";
 import styles from "./usagePage.module.css";
 
@@ -38,7 +38,7 @@ export function UsagePage() {
           </div>
         ) : data.length === 0 ? (
           <EmptyState
-            icon="📊"
+            icon={CompassRose}
             title="No usage recorded yet"
             description="Once you send chat messages, token usage will appear here."
           />

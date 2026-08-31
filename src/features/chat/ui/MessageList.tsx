@@ -12,7 +12,7 @@ import { DateSeparator } from "@/features/chat/ui/DateSeparator";
 import { MessageBubble } from "@/features/chat/ui/MessageBubble";
 import { ScrollToBottomButton } from "@/features/chat/ui/ScrollToBottomButton";
 import { groupMessagesByDay, streamToMessageRow } from "@/features/chat/lib/messageFormatting";
-import { EmptyState, Spinner } from "@/shared/ui";
+import { ChatCircleDots, EmptyState, Spinner } from "@/shared/ui";
 import type { MessageDbRow } from "@/shared/supabase/types";
 import styles from "./chat.module.css";
 
@@ -94,7 +94,7 @@ export function MessageList({ conversationId, onRetry, retrying }: MessageListPr
     return (
       <div className={styles.messagesScroll}>
         <EmptyState
-          icon="💬"
+          icon={ChatCircleDots}
           title="Start the conversation"
           description="Send your first message below. Responses stream in from your own provider key."
         />

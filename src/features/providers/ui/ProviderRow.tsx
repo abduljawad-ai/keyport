@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { useDeleteApiKeyMutation, useTestApiKeyMutation } from "@/features/providers/model/providerMutations";
-import { Button, Dialog, Menu } from "@/shared/ui";
+import { Button, Dialog, DotsThree, Menu } from "@/shared/ui";
 import { formatRelative } from "@/shared/lib/date";
 import { getUserFriendlyMessage, normalizeError } from "@/shared/lib/errors";
 import { getProviderBaseUrl, PROVIDER_LABELS, type ProviderWithKey } from "@/shared/types/provider";
@@ -93,7 +93,12 @@ export function ProviderRow({ provider, onReplaceKey }: ProviderRowProps) {
 
       <Menu
         ariaLabel={`Actions for ${PROVIDER_LABELS[connection.provider_id]}`}
-        trigger={<span className="btn btn--ghost btn--sm">⋯ Actions</span>}
+        trigger={
+          <span className="btn btn--ghost btn--sm">
+            <DotsThree size={16} />
+            Actions
+          </span>
+        }
         items={[
           ...(keyMeta.exists
             ? [

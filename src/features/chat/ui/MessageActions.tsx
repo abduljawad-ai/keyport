@@ -1,7 +1,7 @@
 // Per-message actions: copy (all), retry (failed assistant messages).
 
 import { useCopyToClipboard } from "@/shared/hooks/useCopyToClipboard";
-import { Button } from "@/shared/ui";
+import { Button, Check } from "@/shared/ui";
 import styles from "./chat.module.css";
 
 export interface MessageActionsProps {
@@ -22,7 +22,14 @@ export function MessageActions({ content, failed, onRetry, retrying }: MessageAc
         onClick={() => void copy(content)}
         aria-label="Copy message content"
       >
-        {copied ? "Copied ✓" : "Copy"}
+        {copied ? (
+          <>
+            <Check size={14} weight="bold" />
+            Copied
+          </>
+        ) : (
+          "Copy"
+        )}
       </Button>
       {failed && onRetry ? (
         <Button variant="secondary" size="sm" onClick={onRetry} loading={retrying}>

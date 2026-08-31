@@ -6,6 +6,7 @@ import { useConversation } from "@/features/chat/model/useConversations";
 import { useActiveProviders } from "@/features/providers/model/providerQueries";
 import { TopBarActions } from "@/widgets/TopBar/TopBarActions";
 import { UserMenu } from "@/features/auth/ui/UserMenu";
+import { AppIcon } from "@/shared/ui";
 import { PROVIDER_LABELS } from "@/shared/types/provider";
 import styles from "./topbar.module.css";
 
@@ -38,7 +39,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         onClick={onMenuClick}
         aria-label="Open menu"
       >
-        ☰
+        <AppIcon kind="menu" size={20} />
       </button>
 
       <div className={styles.title} title={conversation?.title}>
@@ -62,7 +63,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
       <TopBarActions
         settings={
           <Link to="/settings" className="icon-btn" aria-label="Open settings" title="Settings">
-            ⚙
+            <AppIcon kind="settings" size={19} />
           </Link>
         }
         userMenu={<UserMenu />}

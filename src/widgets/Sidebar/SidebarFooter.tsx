@@ -1,6 +1,7 @@
 // Sidebar footer: settings/usage navigation + user menu.
 
 import { NavLink } from "react-router-dom";
+import { AppIcon } from "@/shared/ui";
 import { UserMenu } from "@/features/auth/ui/UserMenu";
 import { useProviderKeys } from "@/features/providers/model/providerQueries";
 import { isActiveProvider } from "@/shared/types/provider";
@@ -17,13 +18,13 @@ export function SidebarFooter() {
           to="/settings/providers"
           className={({ isActive }) => `${styles.footerLink}${isActive ? ` ${styles.footerLinkActive}` : ""}`}
         >
-          <span aria-hidden="true">⚙</span> Settings
+          <AppIcon kind="settings" size={16} aria-hidden="true" /> Settings
         </NavLink>
         <NavLink
           to="/usage"
           className={({ isActive }) => `${styles.footerLink}${isActive ? ` ${styles.footerLinkActive}` : ""}`}
         >
-          <span aria-hidden="true">📊</span> Usage
+          <AppIcon kind="usage" size={16} aria-hidden="true" /> Usage
         </NavLink>
       </nav>
       <div className={styles.footerUser}>

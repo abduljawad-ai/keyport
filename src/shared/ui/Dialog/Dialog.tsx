@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
+import { X } from "@/shared/ui/Icon";
 
 export interface DialogProps {
   open: boolean;
@@ -102,7 +103,7 @@ export function Dialog({ open, onClose, title, children, footer, wide = false }:
             onClick={onClose}
             aria-label="Close dialog"
           >
-            ✕
+            <X size={18} />
           </button>
         </div>
         <div className="dialog__body">{children}</div>

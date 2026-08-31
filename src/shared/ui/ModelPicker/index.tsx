@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ModelOption } from "@/shared/types/providerModels";
+import { CaretDown } from "@/shared/ui/Icon";
 import styles from "./ModelPicker.module.css";
 
 export interface ModelPickerProps {
@@ -125,7 +126,7 @@ export function ModelPicker({
       >
         <span className={styles.triggerValue}>{value.trim() ? value : placeholder}</span>
         <span className={styles.caret} aria-hidden="true">
-          ▾
+          <CaretDown size={15} />
         </span>
       </button>
       {open && (
