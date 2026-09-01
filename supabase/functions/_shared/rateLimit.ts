@@ -19,13 +19,20 @@ export interface RateLimitConfig {
 
 /** Conservative per-user limits for sensitive operations. */
 export const RATE_LIMITS: Record<
-  "saveApiKey" | "testApiKey" | "chat" | "listModels",
+  | "saveApiKey"
+  | "testApiKey"
+  | "chat"
+  | "listModels"
+  | "listProviderKeys"
+  | "deleteApiKey",
   RateLimitConfig
 > = {
   saveApiKey: { action: "save-api-key", limit: 10, windowSeconds: 3600 },
   testApiKey: { action: "test-api-key", limit: 20, windowSeconds: 3600 },
   listModels: { action: "list-models", limit: 60, windowSeconds: 3600 },
   chat: { action: "chat", limit: 120, windowSeconds: 3600 },
+  listProviderKeys: { action: "list-provider-keys", limit: 120, windowSeconds: 3600 },
+  deleteApiKey: { action: "delete-api-key", limit: 20, windowSeconds: 3600 },
 };
 
 export interface RateLimitCheckResult {

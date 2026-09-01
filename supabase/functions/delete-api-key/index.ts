@@ -10,6 +10,7 @@
 import { authenticate } from "../_shared/auth.ts";
 import { finalizeCors, handleCorsPreflight } from "../_shared/cors.ts";
 import { appError, errorResponse } from "../_shared/errors.ts";
+import { RATE_LIMITS, enforceRateLimit } from "../_shared/rateLimit.ts";
 import { getRequestRequestId } from "../_shared/requestId.ts";
 import { safeLog, startServer } from "../_shared/serve.ts";
 import {
@@ -37,6 +38,7 @@ export async function handler(req: Request, env: EdgeEnv): Promise<Response> {
   const admin = createAdminClient(env);
   try {
     const user = await authenticate(req, env);
+    await enforceRateLimit(admin, user.id, RATE_LIMITS.deleteApiKey);
     const input = parseDeleteApiKeyBody(await readJsonBody(req));
 
     const connection = await getOwnedConnection(admin, user.id, input.providerConnectionId);
