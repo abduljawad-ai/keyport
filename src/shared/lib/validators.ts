@@ -12,6 +12,11 @@ const MAX_BASE_URL_LENGTH = 2048;
 
 // --- auth ------------------------------------------------------------------
 
+// Allowed signup email domains. This must match the server-side
+// signup_allowlist table (enforced by a trigger on auth.users).
+// Keep this list in sync when adding/removing domains.
+const SIGNUP_ALLOWED_DOMAINS = ["gmail.com"] as const;
+
 export const emailSchema = z
   .string()
   .min(1, "Email is required.")
@@ -38,7 +43,17 @@ export const signUpSchema = z
   .refine((value) => value.password === value.confirmPassword, {
     path: ["confirmPassword"],
     message: "Passwords do not match.",
-  });
+  })
+  .refine(
+    (value) => {
+      const domain = value.email.trim().toLowerCase().split("@")[1];
+      return SIGNUP_ALLOWED_DOMAINS.includes(domain as (typeof SIGNUP_ALLOWED_DOMAINS)[number]);
+    },
+    {
+      path: ["email"],
+      message: `Only @${SIGNUP_ALLOWED_DOMAINS.join(", @")} email addresses are accepted.`,
+    },
+  );
 export type SignUpInput = z.infer<typeof signUpSchema>;
 
 export const forgotPasswordSchema = z.object({
