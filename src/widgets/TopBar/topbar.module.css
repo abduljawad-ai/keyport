@@ -11,6 +11,7 @@
 
 .menuButton {
   display: none;
+  flex-shrink: 0;
 }
 
 .title {
@@ -20,7 +21,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-  flex: 1;
+  flex: 1 1 0%;
 }
 
 .statusArea {
@@ -57,5 +58,8 @@
   }
   .statusArea {
     display: none;
+  }
+  .title {
+    font-size: var(--text-sm);
   }
 }

@@ -1,0 +1,32 @@
+/* User menu: responsive trigger — full email on desktop, avatar on mobile. */
+
+.desktopEmail {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobileAvatar {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .desktopEmail {
+    display: none;
+  }
+  .mobileAvatar {
+    display: inline-flex;
+  }
+}

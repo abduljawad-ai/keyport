@@ -3,6 +3,13 @@
 import { useNavigate } from "react-router-dom";
 import { useSession, useSignOutMutation } from "@/features/auth/model/authQueries";
 import { Menu, useToast } from "@/shared/ui";
+import styles from "./UserMenu.module.css";
+
+/** Extract initials from email (e.g. "jaw@dev.com" → "J"). */
+function getInitials(email: string): string {
+  const local = email.split("@")[0] ?? "";
+  return (local[0] ?? "?").toUpperCase();
+}
 
 export function UserMenu() {
   const { user } = useSession();
@@ -26,12 +33,16 @@ export function UserMenu() {
     <Menu
       ariaLabel={`Account menu for ${email}`}
       trigger={
-        <span
-          className="btn btn--ghost btn--sm"
-          style={{ maxWidth: 180, overflow: "hidden", textOverflow: "ellipsis" }}
-        >
-          {email}
-        </span>
+        <>
+          {/* Desktop: show full email */}
+          <span className={`btn btn--ghost btn--sm ${styles.desktopEmail}`}>
+            {email}
+          </span>
+          {/* Mobile: show avatar circle with initials */}
+          <span className={styles.mobileAvatar} title={email}>
+            {getInitials(email)}
+          </span>
+        </>
       }
       items={[
         { label: "Settings", onSelect: () => navigate("/settings") },

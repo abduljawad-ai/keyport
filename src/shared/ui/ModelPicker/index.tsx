@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ModelOption } from "@/shared/types/providerModels";
+import { friendlyModelName } from "@/shared/types/providerModels";
 import { CaretDown } from "@/shared/ui/Icon";
 import styles from "./ModelPicker.module.css";
 
@@ -23,6 +24,15 @@ function pinnedCurrent(options: ModelOption[], value: string): ModelOption[] {
   return [{ id: trimmed, label: `${trimmed} (current)`, family: "Current" }, ...options];
 }
 
+/** Get the display label for the currently selected model. */
+function getDisplayLabel(options: ModelOption[], value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  const match = options.find((o) => o.id === trimmed);
+  if (match) return match.label;
+  return friendlyModelName(trimmed);
+}
+
 export function ModelPicker({
   id,
   ariaLabel,
@@ -33,6 +43,7 @@ export function ModelPicker({
   disabled = false,
 }: ModelPickerProps) {
   const allOptions = useMemo(() => pinnedCurrent(options, value), [options, value]);
+  const displayLabel = useMemo(() => getDisplayLabel(allOptions, value), [allOptions, value]);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -42,7 +53,13 @@ export function ModelPicker({
 
   const flat = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return q ? allOptions.filter((o) => o.id.toLowerCase().includes(q)) : allOptions;
+    return q
+      ? allOptions.filter(
+          (o) =>
+            o.id.toLowerCase().includes(q) ||
+            o.label.toLowerCase().includes(q),
+        )
+      : allOptions;
   }, [allOptions, query]);
 
   const groups = useMemo(() => {
@@ -124,7 +141,7 @@ export function ModelPicker({
         onKeyDown={handleTriggerKeyDown}
         disabled={disabled}
       >
-        <span className={styles.triggerValue}>{value.trim() ? value : placeholder}</span>
+        <span className={styles.triggerValue}>{displayLabel || placeholder}</span>
         <span className={styles.caret} aria-hidden="true">
           <CaretDown size={15} />
         </span>

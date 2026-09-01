@@ -12,9 +12,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   text-align: center;
-  padding: var(--space-6);
+  padding: var(--space-6) var(--space-4);
 }
 
 .welcomeTitle {
@@ -26,4 +26,65 @@
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   max-width: 460px;
+}
+
+/* Suggested prompt chips */
+
+.prompts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  max-width: 520px;
+  margin-top: var(--space-4);
+}
+
+.promptChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  white-space: nowrap;
+}
+
+.promptChip:hover:not(:disabled) {
+  background: var(--color-bg-hover);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-soft);
+}
+
+.promptChip:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.promptChip:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.promptIcon {
+  font-size: 1em;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .welcomeTitle {
+    font-size: var(--text-xl);
+  }
+  .prompts {
+    gap: 6px;
+  }
+  .promptChip {
+    font-size: var(--text-xs);
+    padding: 6px 12px;
+  }
 }

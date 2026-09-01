@@ -10,6 +10,15 @@ import { MessageList } from "@/features/chat/ui/MessageList";
 import { PROVIDER_DEFAULT_MODELS, type ProviderWithKey } from "@/shared/types/provider";
 import styles from "./ChatShell.module.css";
 
+const SUGGESTED_PROMPTS = [
+  { label: "Explain quantum computing", icon: "💡" },
+  { label: "Write a Python web scraper", icon: "🐍" },
+  { label: "Compare React vs Vue", icon: "⚖️" },
+  { label: "Draft a professional email", icon: "✉️" },
+  { label: "Explain like I'm 5", icon: "👶" },
+  { label: "Debug my code", icon: "🐛" },
+];
+
 export interface ChatShellProps {
   conversationId: string | null;
 }
@@ -73,6 +82,21 @@ export function ChatShell({ conversationId }: ChatShellProps) {
     [conversationId, send],
   );
 
+  /** Handle suggested prompt click — creates a new conversation with the prompt. */
+  const handlePromptClick = useCallback(
+    async (prompt: string) => {
+      if (!selectedProvider || isStreaming) return;
+      await send({
+        content: prompt,
+        conversationId,
+        providerConnectionId: selectedProvider.provider_connection.id,
+        providerId: selectedProvider.provider_connection.provider_id,
+        model: model.trim(),
+      });
+    },
+    [selectedProvider, conversationId, model, send, isStreaming],
+  );
+
   // Retry a failed assistant message as a NEW attempt from the last user
   // message (does not mutate the failed row).
   const handleRetry = useCallback(async () => {
@@ -95,6 +119,20 @@ export function ChatShell({ conversationId }: ChatShellProps) {
           <div className={styles.welcomeHint}>
             Your messages are answered by the provider you choose, using your own encrypted
             API key.
+          </div>
+          <div className={styles.prompts}>
+            {SUGGESTED_PROMPTS.map((p) => (
+              <button
+                key={p.label}
+                type="button"
+                className={styles.promptChip}
+                onClick={() => handlePromptClick(p.label)}
+                disabled={!selectedProvider || isStreaming}
+              >
+                <span className={styles.promptIcon} aria-hidden="true">{p.icon}</span>
+                {p.label}
+              </button>
+            ))}
           </div>
         </div>
       )}

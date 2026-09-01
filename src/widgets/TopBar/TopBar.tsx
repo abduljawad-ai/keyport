@@ -8,6 +8,7 @@ import { TopBarActions } from "@/widgets/TopBar/TopBarActions";
 import { UserMenu } from "@/features/auth/ui/UserMenu";
 import { AppIcon } from "@/shared/ui";
 import { PROVIDER_LABELS } from "@/shared/types/provider";
+import { friendlyModelName } from "@/shared/types/providerModels";
 import styles from "./topbar.module.css";
 
 function useActiveConversationId(): string | null {
@@ -48,7 +49,9 @@ export function TopBar({ onMenuClick }: TopBarProps) {
 
       <div className={styles.statusArea}>
         {conversation?.model_id ? (
-          <span className={styles.modelChip}>{conversation.model_id}</span>
+          <span className={styles.modelChip} title={conversation.model_id}>
+            {friendlyModelName(conversation.model_id)}
+          </span>
         ) : null}
         <span
           className={`badge badge--${connectionState.tone}`}

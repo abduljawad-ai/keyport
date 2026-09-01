@@ -127,6 +127,37 @@ export function deriveModelFamily(id: string): string {
 }
 
 /**
+ * Friendly label for a raw model id from the catalog.
+ * Transforms technical slugs into human-readable names.
+ * e.g. "llama-3.3-70b-versatile" → "Llama 3.3 70B Versatile"
+ *      "openai/gpt-oss-120b" → "GPT-OSS 120B"
+ */
+const CATALOG_LABEL_OVERRIDES: Record<string, string> = {
+  // Groq
+  "groq/compound": "Compound",
+  "groq/compound-mini": "Compound Mini",
+  "openai/gpt-oss-120b": "GPT-OSS 120B",
+  "openai/gpt-oss-20b": "GPT-OSS 20B",
+  "qwen/qwen3.6-27b": "Qwen 3.6 27B",
+  "llama-3.1-8b-instant": "Llama 3.1 8B",
+  "llama-3.3-70b-versatile": "Llama 3.3 70B",
+  // OpenRouter
+  "~openai/gpt-latest": "GPT Latest",
+  "~anthropic/claude-latest": "Claude Latest",
+  "~google/gemini-flash-latest": "Gemini Flash Latest",
+};
+
+export function friendlyCatalogLabel(id: string): string {
+  const over = CATALOG_LABEL_OVERRIDES[id];
+  if (over) return over;
+  // e.g. "meta/llama-3.1-70b-instruct" → "Llama 3.1 70B Instruct"
+  const stripped = id.replace(/^~+/, "");
+  return stripped
+    .replace(/[-_/]/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
  * Returns the curated list for a provider, or null when the provider's model
  * set is unknown (the custom provider) and a free-text input should be used.
  * Resolution order: opencode catalog (synced providers) → curated native list
@@ -137,7 +168,7 @@ export function getModelsForProvider(providerId: ProviderId | string | null | un
   if (!providerId) return null;
   const catalog = OPENCODE_CATALOG[providerId];
   if (catalog && catalog.length > 0) {
-    return catalog.map((id) => ({ id, label: id, family: deriveModelFamily(id) }));
+    return catalog.map((id) => ({ id, label: friendlyCatalogLabel(id), family: deriveModelFamily(id) }));
   }
   const curated = PROVIDER_MODELS[providerId as ProviderId];
   if (curated) return curated;
@@ -165,4 +196,24 @@ export function getModelOptions(
   return [{ id: trimmed, label: `${trimmed} (custom)`, family: "Current" }, ...curated];
   }
   return curated;
+}
+
+/**
+ * Friendly display name for a model id — looks up the curated label when
+ * available, falls back to a cleaned-up version of the raw id.
+ * Used in the TopBar chip and anywhere a human-readable model name is needed.
+ */
+
+export function friendlyModelName(modelId: string): string {
+  const trimmed = modelId.trim();
+  if (!trimmed) return trimmed;
+
+  // Search curated catalogs for a matching label
+  for (const models of Object.values(PROVIDER_MODELS)) {
+    const found = models.find((m) => m.id === trimmed);
+    if (found) return found.label;
+  }
+
+  // Use the friendly catalog label for known catalog ids
+  return friendlyCatalogLabel(trimmed);
 }
